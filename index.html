@@ -66,6 +66,12 @@
         var data = {
           "generatedBy":"usco",
           "generationDate":"999",
+          "columns":["Part Name","Variant name","Part Parameters","Printed","Quantity","Include"],//last field(not shown, is instances list)
+          "data":[
+             ["somePart","typeA","rounded:true",true,2,true,[]],
+             ["fooPart","","",true,24,false,[]]
+
+           ],//DEPRECATED
           "parts":[
            {"name":"somePart",
             "varName": "typeA",
