@@ -1,0 +1,13 @@
+{
+  "name": "usco-bom-viewer",
+  "private": true,
+  "dependencies": {
+    "platform": "Polymer/platform#master",
+    "polymer": "Polymer/polymer#master",
+    "polymer-ui-collapsible": "Polymer/polymer-ui-collapsible#master",
+    "polymer-ui-accordion": "Polymer/polymer-ui-accordion#master",
+    "polymer-ui-field": "Polymer/polymer-ui-field#master",
+    "polymer-selector": "Polymer/polymer-selector#master"
+  }
+}
+

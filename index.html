@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Bom viewer example</title>
+    <link rel="import" href="bom-viewer.html">
+
+    <script src="components/platform/platform.js"></script>
+    <link rel="import" href="components/polymer/polymer.html">
+    
+    <style>
+      polymer-ui-collapsible {
+        margin-bottom: 2px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+      }
+      
+      .polymer-ui-collapsible-header {
+        padding: 10px;
+        border-bottom: 1px solid #bcbcbc;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      
+      .content {
+        padding: 10px;
+      }
+
+      .captionEl{
+        position:relative;
+        width:10px;
+        height:20px;
+        padding:10px;        
+      }
+
+       polymer-ui-field {
+        border: 1px solid #ddd;
+        margin: 10px;
+        height: 40px;
+      }
+
+      polymer-ui-field input, select, textarea, color-picker{
+          border: 1px solid;
+          background: transparent;
+          border-radius: 0px;
+          width:200px;
+          
+          -ms-box-sizing:content-box;
+          -moz-box-sizing:content-box;
+          box-sizing:content-box;
+          -webkit-box-sizing:content-box; 
+      }
+
+       .item.polymer-selected {
+          background: #eee;
+        }
+
+    </style>
+  </head>
+  <body>
+    <bom-viewer> </bom-viewer>
+    <script>
+      document.addEventListener('WebComponentsReady', function() {
+        var bomViewer = document.querySelector('bom-viewer');
+
+
+        var data = {
+          "generatedBy":"usco",
+          "generationDate":"999",
+          "parts":[
+           {"name":"somePart",
+            "varName": "typeA",
+            "params" : "rounded:true",
+            "printed":true,
+            "quantity":2,
+            "instances":[],
+            "include":true
+           },
+            {"name":"fooPart",
+            "varName": "",
+            "params" : "",
+            "printed":true,
+            "quantity":24,
+            "instances":[],
+            "include":true
+           }
+
+
+          ]
+        };
+        
+          bomViewer.bomData = data;
+        });
+    </script>
+  </body>
+</html>
