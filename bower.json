@@ -2,12 +2,15 @@
   "name": "usco-bom-viewer",
   "private": true,
   "dependencies": {
-    "platform": "Polymer/platform#master",
+    "webcomponentsjs": "Polymer/webcomponentsjs#~0.4.2",
     "polymer": "Polymer/polymer#master",
-    "polymer-ui-collapsible": "Polymer/polymer-ui-collapsible#master",
-    "polymer-ui-accordion": "Polymer/polymer-ui-accordion#master",
-    "polymer-ui-field": "Polymer/polymer-ui-field#master",
-    "polymer-selector": "Polymer/polymer-selector#master"
+    "core-selector": "Polymer/core-selector#master",
+    "aha-table": "liuwenchao/aha-table#~1.0.19"
+  },
+  "resolutions": {
+    "webcomponentsjs": "~0.4.2",
+    "polymer": "master",
+    "core-component-page": "master",
+    "platform": "master"
   }
 }
-

@@ -2,9 +2,8 @@
 <html>
   <head>
     <title>Bom viewer example</title>
-    <link rel="import" href="bom-viewer.html">
+    <link rel="import" href="bom-editor.html">
 
-    <script src="components/platform/platform.js"></script>
     <link rel="import" href="components/polymer/polymer.html">
     
     <style>
@@ -57,19 +56,19 @@
     </style>
   </head>
   <body>
-    <bom-viewer> </bom-viewer>
+    <bom-editor> </bom-editor>
     <script>
-      document.addEventListener('WebComponentsReady', function() {
-        var bomViewer = document.querySelector('bom-viewer');
+      document.addEventListener('polymer-ready', function() {
+        var bomViewer = document.querySelector('bom-editor');
 
 
         var data = {
           "generatedBy":"usco",
           "generationDate":"999",
-          "columns":["Part Name","Variant name","Part Parameters","Printed","Quantity","Include"],//last field(not shown, is instances list)
+          "columns":["Part Name","Variant name","Part Parameters","Printable","Quantity","Unit","Include"],//last field(not shown, is instances list)
           "data":[
              ["somePart","typeA","rounded:true",true,2,true,[]],
-             ["fooPart","","",true,24,false,[]]
+             ["fooPart","","",true,24,"EA",false,[]]
 
            ],//DEPRECATED
           "parts":[
@@ -89,12 +88,46 @@
             "instances":[],
             "include":true
            }
-
-
           ]
         };
         
           bomViewer.bomData = data;
+          
+          
+          bomViewer.bom = [
+            {
+              "id": 7,
+              "title": "Finger Tip Long",
+              "description": "Finger tip, long",
+              "amount": 1,
+              "unit":"EA",
+              "version": "0.0.1",
+              "url": "https://d36c0vbvwjb9cx.cloudfront.net/uploads/document/file/12167/Finger_tip_long__x1_.stl",
+              "thumbnailUrl":""
+            },
+            {
+              "id": 8,
+              "title": "Finger Tip Medium",
+              "description": "Finger tip, medium",
+              "amount": 3,
+              "unit":"EA",
+              "version": "0.0.1",
+              "url": "https://d36c0vbvwjb9cx.cloudfront.net/uploads/document/file/12168/Finger_tip_medium__x3_.stl",
+              "thumbnailUrl":""
+            },
+            {
+               "id":15,
+               "title":"Palm",
+               "version":"2.2.0",
+               "description":"Right Palm",
+               "amount": 1,
+               "unit":"EA",
+               "url":"palm_x_x_x.stl",
+               "origin":"palm.scad",
+               "parameters":"{orientation:'Right',innerSize:25}"
+             }
+            ];
+          
         });
     </script>
   </body>

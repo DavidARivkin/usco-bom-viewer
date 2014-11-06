@@ -1,0 +1,84 @@
+<link rel="import" href="components/polymer/polymer.html">
+<link rel="import" href="components/aha-table/dist/aha-table.html">
+<polymer-element name="bom-editor2" attributes="bom">
+  <template>
+    <aha-table removable selectable searchable copyable  id="table" data="{{bom}}" meta="{{meta}}">
+    </aha-table>
+    <button id="add" on-tap="{{addEntry}}">Create</button>
+    <button id="info" on-tap="{{showInfos}}">Infos</button>
+    <button id="info" on-tap="{{downloadBom}}">Download</button>
+  </template>
+<script>
+  Polymer("bom-editor2",{
+    bom:[],
+    meta:[],
+    units:["EA","inch","foot","mm","cm","dm","m","g","kg","pound"],//use for unit field
+    ready:function(){
+      this.meta = [
+        {name:"id", type:"string",
+        required:true,searchable:true, sortable:true, editable:true},
+        {name:"title", type:"string",
+        required:true,searchable:true, sortable:true, editable:true},
+        {name:"description", type:"text",
+        required:true,searchable:true, sortable:true, editable:true},
+        {name:"version", type:"string",
+        required:false,searchable:true, sortable:true, editable:true},
+        {name:"amount", type:"string",
+        required:true,searchable:true, sortable:true, editable:true},
+        
+        {name:"parameters", type:"string",
+        required:false,searchable:true, sortable:true, editable:true},
+        
+        {name:"url", type:"string",
+        required:true,searchable:true, sortable:true, editable:true},
+        
+        {name:"unit", type:"choice", searchable:true, sortable:true, editable:true,
+        placeholder:"Unit type",default:"EA",
+          hint:"Type of the unit for the given item",options: [
+            {value:"EA",label:"EA"},{value:"inch",label:"inch"},
+           ]},
+      ]
+    },
+    bomChanged:function(){
+      console.log("bomChanged",this.bom);
+      this.$.table.data = this.bom;
+    },
+    metaChanged:function(){
+      this.$.table.meta = this.meta;
+    },
+    addEntry:function(){
+      this.$.table.create();
+    },
+    showInfos:function(){
+      console.log("BOM", this.bom);
+    },
+    downloadBom:function(){
+      var link = document.createElement("a");
+      var bomBlob = new Blob( [ JSON.stringify( this.filteredBom() ) ], {type: "application/json"});
+      var filename = "bom.json";
+      link.href = URL.createObjectURL(bomBlob);
+      link.setAttribute("download", filename);
+      link.innerHTML = "downloading...";
+      setTimeout(function() {
+          link.click();
+      }, 66);
+      return true;   
+    },
+    //helpers
+    filteredBom:function(){
+      //remove any ui added field from the bom
+      var outputBom = [];
+      for(var i=0;i<this.bom.length;i++)
+      {
+        var entry = this.bom[i];
+        outputBom.push( entry );
+        delete entry._editing;
+        delete entry._modified;
+        
+      }
+      return outputBom;
+    }
+  });
+</script>
+
+</polymer-elment>

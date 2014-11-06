@@ -1,0 +1,281 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Bom editor example</title>
+    <link rel="import" href="bom-editor-alt.html">
+
+  <link href='//fonts.googleapis.com/css?family=RobotoDraft:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="components/aha-table/demo/theme.css">
+
+    <style>
+     /* bom-editor2 /deep/ aha-table{
+        color:red;
+      }*/
+     bom-editor2 /deep/ aha-table::shadow .aha-td {
+     
+      color:black;
+      font-size:13px;
+       font-family: 'RobotoDraft', sans-serif;
+     }
+     bom-editor2 /deep/ aha-table::shadow .aha-url-td{
+        max-width:100px;
+        overflow:hidden;
+      }
+     bom-editor2 /deep/ aha-table::shadow .aha-amount-td{
+      max-width:50px;
+     }
+     
+     bom-editor2 /deep/ aha-table::shadow .aha-amount-td 
+     bom-editor2 /deep/ aha-table::shadow .aha-amount-th{
+      max-width:50px;
+     }
+     
+     bom-editor2 /deep/ aha-table::shadow .aha-id-th{
+      max-width:50px;
+     }
+     
+     bom-editor2 /deep/ aha-table::shadow .aha-id-td{
+      max-width:50px;
+     }
+     
+    /* #themed /deep/ aha-table{
+      color:red;
+     }
+    #themed /deep/ aha-table::shadow th.sortable, 
+    #themed /deep/ ::shadow .rows td {
+      white-space: nowrap;
+      padding: 8px 5px;
+      border: 1px solid #a0cfef;
+    }*/
+    bom-editor2 /deep/ aha-table::shadow .rows:hover, .selected {
+      background-color: #ffd200;
+      }
+     bom-editor2 /deep/ aha-table::shadow table{
+      border-spacing: 0px;
+      background: rgb(218, 229, 209);}
+    </style>
+  </head>
+  <body>
+    <bom-editor2 id="themed"> </bom-editor2>
+    <script>
+      document.addEventListener('polymer-ready', function() {
+        var bomEditor = document.querySelector('bom-editor2');
+
+        /*
+        var data = {
+          "generatedBy":"usco",
+          "generationDate":"999",
+          "columns":["Part Name","Variant name","Part Parameters","Printable","Quantity","Unit","Include"],//last field(not shown, is instances list)
+          "data":[
+             ["somePart","typeA","rounded:true",true,2,true,[]],
+             ["fooPart","","",true,24,"EA",false,[]]
+
+           ],//DEPRECATED
+          "parts":[
+           {"name":"somePart",
+            "varName": "typeA",
+            "params" : "rounded:true",
+            "printed":true,
+            "quantity":2,
+            "instances":[],
+            "include":true
+           },
+            {"name":"fooPart",
+            "varName": "",
+            "params" : "",
+            "printed":true,
+            "quantity":24,
+            "instances":[],
+            "include":true
+           }
+          ]
+        };
+        
+          bomViewer.bomData = data;
+          
+            */        
+          bomEditor.bom = [
+        {
+            "id": 0,
+            "title": "Velcro",
+            "description": "Velcro, double-sided (2” wide)",
+            "amount": 4,
+            "unit": "feet",
+            "url": ""
+        },
+        {
+            "id": 1,
+            "title": "Spectra line",
+            "description": "Non-flexible nylon lift cord or braided fishing line ('Spectra line')",
+            "amount": 8,
+            "unit": "feet",
+            "url": ""
+        },
+        {
+            "id": 2,
+            "title": "Firm Foam Padding 5.75 inch wide",
+            "description": "Firm Foam Padding (5 ¾” wide) ",
+            "amount": 12,
+            "unit": "inch",
+            "url": ""
+        },
+        {
+            "id": 3,
+            "title": "M3 hex screw",
+            "description": "Tensioner screw",
+            "amount": 5,
+            "unit":"EA",
+            "url": ""
+        },
+        {
+            "id": 4,
+            "title": "Palm vecro attachment",
+            "description": "Palm velcro attachment screws with stop nuts ",
+            "amount": 3,
+            "unit":"EA",
+            "url": ""
+        },
+        {
+            "id": 5,
+            "title": "Lee Tippi Micro Gel",
+            "description": "Lee Tippi Micro Gel Fingertip Grips (as shown in photo, optional)",
+            "amount": 5,
+            "unit":"EA",
+            "url": ""
+        },
+        {
+            "id": 6,
+            "title": "Finger_snap_pin",
+            "description": "Finger snap pin , to attach fingers",
+            "amount": 5,
+            "unit":"EA",
+            "version": "0.0.1",
+            "url": ""
+        },
+        {
+            "id": 7,
+            "title": "Finger Tip Long",
+            "description": "Finger tip, long",
+            "amount": 1,
+            "unit":"EA",
+            "version": "0.0.1",
+            "url": "https://d36c0vbvwjb9cx.cloudfront.net/uploads/document/file/12167/Finger_tip_long__x1_.stl",
+            "thumbnailUrl":""
+        },
+        {
+            "id": 8,
+            "title": "Finger Tip Medium",
+            "description": "Finger tip, medium",
+            "amount": 3,
+            "unit":"EA",
+            "version": "0.0.1",
+            "url": "https://d36c0vbvwjb9cx.cloudfront.net/uploads/document/file/12168/Finger_tip_medium__x3_.stl",
+            "thumbnailUrl":""
+        },
+        {
+            "id": 9,
+            "title": "Gauntlet",
+            "description": "Gauntlet",
+            "amount": 1,
+            "unit":"EA",
+            "version": "0.0.1",
+            "url": "https://d36c0vbvwjb9cx.cloudfront.net/uploads/document/file/12169/Finger_tip_short__x1_.stl",
+            "thumbnailUrl":""
+        },
+        {
+            "id": 10,
+            "title": "Hinge Cap",
+            "description": "Hinge Caps",
+            "amount": 1,
+            "unit":"EA",
+            "version": "0.0.1",
+            "url": "https://d36c0vbvwjb9cx.cloudfront.net/uploads/document/file/12171/Hinge_Caps__x1_.stl",
+            "thumbnailUrl":""
+        },
+        {
+            "id": 11,
+            "title": "Hinge Pin",
+            "description": "Hinge Pins",
+            "amount": 1,
+            "unit":"EA",
+            "version": "0.0.1",
+            "url": "https://d36c0vbvwjb9cx.cloudfront.net/uploads/document/file/12172/Hinge_Pins__x1_.stl",
+            "thumbnailUrl":""
+        },
+        {
+            "id": 12,
+            "title": "Knuckle Pin",
+            "description": "Knuckle Pins",
+            "amount": 1,
+            "unit":"EA",
+            "version": "0.0.1",
+            "url": "https://d36c0vbvwjb9cx.cloudfront.net/uploads/document/file/12173/Knuckle_Pins__x1_.stl",
+            "thumbnailUrl":""
+        },
+        {
+            "id": 13,
+            "title": "Left Palm",
+            "description": "Left Palm",
+            "amount": 1,
+            "unit":"EA",
+            "version": "2.2.0",
+            "url": "https://d36c0vbvwjb9cx.cloudfront.net/uploads/document/file/12730/PalmLeft_2.2__x1_.stl",
+            "thumbnailUrl":""
+        },
+        {
+            "id": 14,
+            "title": "Right Palm",
+            "description": "Right Palm",
+            "amount": 1,
+            "unit":"EA",
+            "version": "2.2.0",
+            "url": "https://d36c0vbvwjb9cx.cloudfront.net/uploads/document/file/12731/PalmRight_2.2__x1_.stl",
+            "thumbnailUrl":""
+        },
+        {
+            "id": 15,
+            "title": "Proximal Phalange",
+            "description": "Proximal Phalange",
+            "amount": 5,
+            "unit":"EA",
+            "version": "0.0.1",
+            "url": "https://d36c0vbvwjb9cx.cloudfront.net/uploads/document/file/12177/Proximal_Phalange__x5_.stl",
+            "thumbnailUrl":""
+        },
+        {
+            "id": 16,
+            "title": "Tensioner Block",
+            "description": "Tensioner Block",
+            "amount": 1,
+            "unit":"EA",
+            "version": "0.0.1",
+            "url": "https://d36c0vbvwjb9cx.cloudfront.net/uploads/document/file/12178/Tensioner_block__x1_.stl",
+            "thumbnailUrl":""
+        },
+        {
+            "id": 17,
+            "title": "Tensioner Pin Medium 2.5mm",
+            "description": "Tensioner Pins Medium 2.5mm",
+            "amount": 1,
+            "unit":"EA",
+            "version": "0.0.1",
+            "url": "https://d36c0vbvwjb9cx.cloudfront.net/uploads/document/file/12179/Tensioner_Pins-Medium__2.5mm___x1_.stl",
+            "thumbnailUrl":""
+        },
+        {
+            "id": 18,
+            "title": "Thumb Pin",
+            "description": "Thumb Pins",
+            "amount": 1,
+            "unit":"EA",
+            "version": "0.0.1",
+            "url": "https://d36c0vbvwjb9cx.cloudfront.net/uploads/document/file/12180/Thumb_Pin__x1_.stl",
+            "thumbnailUrl":""
+        }
+    ];
+
+        });
+    </script>
+  </body>
+</html>

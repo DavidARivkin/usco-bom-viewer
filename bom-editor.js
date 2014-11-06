@@ -1,4 +1,4 @@
-Polymer("bom-viewer", {
+Polymer("bom-editor", {
   bomData: null,
   selectedPart: null,
   sortInfos: null,
